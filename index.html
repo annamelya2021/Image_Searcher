@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://pixabay.com/ http://conoret.com;">
+    <title>Pixa</title>
+    <!-- <link rel="stylesheet" href="node_modules/simplelightbox/dist/simple-lightbox.min.css"> -->
+    <!-- <script src="node_modules/simplelightbox/dist/simple-lightbox.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.14.3/simple-lightbox.css" integrity="sha512-5gTxhbmgsOKfPP2+TeKslkMmyxF0Cmyr2YrJrfaXD/ChLHavFXGzDDG9ZiOca1P/2/5nXuujkB2BWymVKu1pPg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.14.3/simple-lightbox.min.js" integrity="sha512-Vtot07oogPy4e0JzAfUgyvia0fATgR1PWWNG89EeQgPXmaIhjGQIFijUVxRn0TScCMCH57Y7eJSixmYYDJkJ1A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+
+    <link rel="stylesheet" href="./styles.css">
+  
+</head>
+  <body>
+      <header class="container">
+        <ul>
+          <a href="./index.html"><li>Home</li></a>
+           <a class="favorites-button" href="./favorites.html"><li>Favorites</li></a>
+      </ul>
+<form class="search-form" id="search-form">
+  <input type="text" name="searchQuery" autocomplete="off" placeholder="Search images..." />
+    </form>
+      </header>
+<main>
+<div class="gallery">
+  <div id="alert-container"></div>
+</div>
+
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="modalImage">
+</div>
+</main>
+<footer class="footer">
+</footer>
+
+<script type="module" src="./index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,282 @@
+
+body {
+    font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; 
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1200px;
+}
+
+h1,
+h2,
+h3,
+p,
+ul {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+
+footer {
+    background-image: url(./crystal-7428278_1280.jpg);    
+/* background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
+font: inherit;
+display: flex;
+        justify-content: center;
+        padding: 10px;
+
+       */
+            position: fixed;
+            height: 20px;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1000; /* Забезпечуємо, щоб хедер був над усіма іншими елементами */
+
+}
+
+img {
+    display: block;
+    height: 100%; 
+}
+
+main {
+    margin-top: 120px; /* Замініть 80px на висоту вашого хедера */
+}
+
+a{
+    text-decoration: none;
+}
+
+.photo-card img {
+    display: block;
+    width: 100%;
+    height: 100%; /* Змінено на 100% */
+    object-fit: cover; /* Додано */
+    margin: 0;
+}
+    
+.photo-card {
+        position: relative;
+        flex: 0 0 calc(33.33%);
+        margin: 15px 15px 5px 15px;
+        border-radius: 4px;
+        
+        border: 1px solid #ddd;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        display: flex; /* Додано */
+        justify-content: justify; /* Додано */
+    }
+
+
+    .photo-card {
+    flex: 0 0 calc(33.33% - 30px); /* Розрахунок ширини карточки для відображення по три в рядок на середніх і великих екранах */
+    margin: 15px;
+    height: 200px; /* Задаємо фіксовану висоту для всіх карточок */
+    display: flex;
+    flex-direction: column;
+}
+
+.photo-card img {
+    flex: 1; /* Займати всю вільну доступну висоту у карточки */
+    object-fit: cover;
+}
+
+
+.info {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 10px;
+        transition: opacity 0.3s ease;
+        opacity: 0;
+        /* margin-top: 10px; */ /* Видаліть цю строку */
+        display: flex;
+        justify-content: space-between;
+    }
+    
+
+.photo-card:hover .info {
+    opacity: 1; /* При наведенні кнопки стають видимими */
+}
+
+
+.info-item {
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center;
+color:black;
+
+
+}
+
+
+
+.image-link {
+    display: inline-block;
+    position: relative;
+}
+
+.button-container {
+    position: absolute;
+    top: 10px; /* Відстань від верхнього краю карточки */
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% ); 
+}
+
+.toggle-favorite,
+.download-button {
+    outline: none;
+    border: none;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-favorite:hover,
+.download-button:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+
+.card-container {
+    display: inline-block;
+    width: calc(33% - 30px); /* Розрахунок ширини карточки для відображення по три в рядок з відступами */
+    margin: 15px;
+}
+
+
+
+
+
+
+/* Стилі для header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px; /* Задайте висоту вашого header */
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    align-items: center; /* Вирівняти по вертикалі */
+    justify-content: space-between; /* Рівномірно розподілити по горизонталі */
+    padding: 0 20px; /* Додайте відступи по краях */
+}
+
+/* Стилі для посилань у header */
+header ul {
+    list-style-type: none; /* Позбавитися від маркерів списку */
+    display: flex; /* Розмістити посилання в один рядок */
+}
+
+header ul li {
+    margin-right: 20px; /* Відстань між посиланнями */
+}
+
+header ul li a {
+    text-decoration: none; /* Відмінити підкреслення посилань */
+    color: #333333; /* Колір тексту посилань */
+    font-weight: bold; /* Жирний шрифт */
+    transition: color 0.3s ease; /* Плавна анімація зміни кольору */
+}
+
+header ul li a:hover {
+    color: #007bff; /* Змінити колір тексту при наведенні */
+}
+
+/* Стилі для пошукового input */
+.search-form {
+    margin: 0 auto; /* Відстань від header до пошукової форми */
+}
+
+.search-form input[type="text"] {
+    width: 700px; /* Ширина пошукового поля */
+    height: 30px; /* Висота пошукового поля */
+    padding: 10px; /* Внутрішні відступи */
+    border-radius: 20px; /* Скруглені кути */
+    border: 2px solid #007bff; /* Рамка */
+    outline: none; /* Відмінити зображення контуру при фокусі */
+    transition: border-color 0.3s ease; /* Плавна анімація зміни колір рамки */
+}
+
+.search-form input[type="text"]:focus {
+    border-color: #ff0000; /* Змінити колір рамки при фокусі */
+}
+
+
+#alert-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+
+
+
+.alert {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f8d7da;
+    color: #721c24;
+    margin-bottom: 10px;
+}
+/* Стилі для модального вікна */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 50px;
+    left: 0;
+    top: 90px;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);  
+  }
+  
+  .modal-content {
+    margin: auto;
+    display: block;
+    width: 70%; 
+    height: 75%; 
+  }
+  body.modal-open {
+    overflow: hidden;
+}
+  
+  .close {
+    position: absolute;
+    top: 25px;
+    right: 145px;
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+ 
+  .photo-card .button-container button {
+    padding: 10px 15px; 
+    font-size: 20px; 
+  }
+
+ /* #favorites-container {
+    position: relative;
+} */
