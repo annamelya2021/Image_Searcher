@@ -1,9 +1,9 @@
-import {refs} from './refs.js';
-import {toggleFavorites} from './toggle.js';
+import {refs} from './js/refs.js';
+import {toggleFavorites} from './js/toggle.js';
  import { API_KEY, BASE_URL } from './js/Api_key.js';
- import{ handleDownloadButtonClick} from './download.js'
- import{updateFavoriteButtons} from './updateFavoriteButton.js';
- import {searchImages} from './searchImage.js';
+ import{ handleDownloadButtonClick} from './js/download.js'
+ import{updateFavoriteButtons} from './js/updateFavoriteButton.js';
+ import {searchImages} from './js/searchImage.js';
 
 refs.searchInput.addEventListener('keyup', searchImages);
 
@@ -18,19 +18,11 @@ window.addEventListener('scroll', () => {
 });
 
 
-
-
 export let myQuery = '';
 export let page = 1;
 export let total = 0;
 export let totalHits = 0;
 export let isFetching = false;
-// let perPage = 40; 
-
-console.log('Api_key.js :>> ', API_KEY);
-console.log('BASE_URL :>> ', BASE_URL);
-console.log('refs :>> ', refs);
-
 
 
 export async function fetchArticles() {
@@ -43,11 +35,9 @@ export async function fetchArticles() {
         }
         const data = await response.json();
         total += data.hits.length;
-        console.log(total);
         totalHits = data.totalHits;
 
         if (total >= totalHits) {
-            console.log('You have reached the end of available images.')
             showAlert('You have reached the end of available images.');
         }
 
@@ -63,17 +53,15 @@ export function showAlert(message) {
     const alert = document.createElement('div');
     alert.classList.add('alert');
     alert.textContent = message || 'Sorry, an error occurred'; 
-    
-    // Перевіряємо, чи існує контейнер для сповіщень
+
     if (alertContainer) {
-        // Якщо так, вставляємо сповіщення перед першим елементом у контейнері
+
         alertContainer.insertBefore(alert, alertContainer.firstChild);
     } else {
-        // Якщо контейнер ще не існує, вставляємо сповіщення безпосередньо у body
+  
         document.body.insertBefore(alert, document.body.firstChild);
     }
-    
-    // Встановлюємо таймер для автоматичного прибирання сповіщення
+
     setTimeout(() => {
         alert.remove();
     }, 5000);
@@ -161,48 +149,34 @@ if (event.target.tagName !== 'IMG') {
     const modalImg = document.getElementById('modalImage');
     modal.style.display = 'block';
     modalImg.src = imgSrc;
-    document.body.classList.add('modal-open'); // Додати клас до body
+    document.body.classList.add('modal-open'); 
 }
 
 export function closeModal() {
     const modal = document.getElementById('myModal');
     modal.style.display = 'none';
-    document.body.classList.remove('modal-open'); // Видалити клас з body
+    document.body.classList.remove('modal-open'); 
 }
 
-
-document.querySelector('.close').addEventListener('click', closeModal);
-
-window.addEventListener('click', (event) => {
-    const modal = document.getElementById('myModal');
-    if (event.target == modal) {
-        closeModal();
-    }
-});
 
 
 async function loadMoreImages() {
-    if (!isFetching) { // Перевіряємо, чи вже йде процес завантаження
-        isFetching = true; // Встановлюємо прапорець, що йде процес завантаження
-        page++; // Збільшуємо номер сторінки для завантаження наступної порції картинок
+    if (!isFetching) { 
+        isFetching = true; 
+        page++; 
         try {
-            const data = await fetchArticles(); // Завантажуємо дані для нової сторінки
+            const data = await fetchArticles(); 
             if (!data || !data.hits) {
-                // Якщо дані або властивість hits невизначені, вийти з функції
                 return;
             }
-            createMarkup(data); // Оновлюємо вміст сторінки з новими даними
+            createMarkup(data); 
         } catch (error) {
             console.error('Error loading more images:', error);
         } finally {
-            isFetching = false; // Збираємо прапорець про завершення процесу завантаження
+            isFetching = false; 
         }
     }
 }
-
-
-
-
 
 fetchArticles().then(createMarkup);
 

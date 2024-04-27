@@ -21,7 +21,20 @@ header {
     padding: 0 20px; 
 }
 
-/* Для мобільних пристроїв */
+main {
+     height: 100vh; 
+
+    margin-top: 80px;
+    background-image: url(../img/fondo.png);
+    background-size: cover; 
+    background-repeat: repeat; 
+    background-position: center; 
+        background-attachment: fixed;
+   
+ 
+}
+
+
 @media only screen and (max-width: 600px) {
     .header {
         height: 70px;
@@ -59,13 +72,6 @@ header {
 
 }
 
-
-
-
-/* Для мобільних пристроїв */
-
-
-/* Для планшетів */
 @media only screen and (min-width: 601px) and (max-width: 1024px) {
   header {
     height: 80px; /* Зменшуємо висоту хедера */
@@ -106,7 +112,6 @@ header {
 
 
 
-
 h1,
 h2,
 h3,
@@ -136,8 +141,6 @@ img {
     height: 100%; 
 }
 
-
-
 a{
     text-decoration: none;
 }
@@ -151,8 +154,6 @@ a{
     object-fit: cover;
 }
     
-
-
 .photo-card {
         position: relative;
         flex: 0 0 calc(33.33%);
@@ -162,8 +163,8 @@ a{
         border: 1px solid #ddd;
         overflow: hidden;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        display: flex; /* Додано */
-        justify-content: justify; /* Додано */
+        display: flex; 
+        justify-content: justify;
     }
 
 
@@ -177,14 +178,13 @@ a{
         padding: 10px;
         transition: opacity 0.3s ease;
         opacity: 0;
-        /* margin-top: 10px; */ /* Видаліть цю строку */
         display: flex;
         justify-content: space-between;
     }
     
 
 .photo-card:hover .info {
-    opacity: 1; /* При наведенні кнопки стають видимими */
+    opacity: 1; 
 }
 
 
@@ -197,8 +197,6 @@ color:black;
 
 }
 
-
-
 .image-link {
     display: inline-block;
     position: relative;
@@ -206,7 +204,7 @@ color:black;
 
 .button-container {
     position: absolute;
-    top: 10px; /* Відстань від верхнього краю карточки */
+    top: 10px; 
     display: flex;
     justify-content: space-between;
     width: calc(100% ); 
@@ -231,63 +229,55 @@ color:black;
 
 .card-container {
     display: inline-block;
-    width: calc(33% - 30px); /* Розрахунок ширини карточки для відображення по три в рядок з відступами */
+    width: calc(33% - 30px); 
     margin: 15px;
 }
 
 
-
-
-
-
-
-/* Стилі для посилань у header */
 header ul {
-    list-style-type: none; /* Позбавитися від маркерів списку */
-    display: flex; /* Розмістити посилання в один рядок */
+    list-style-type: none; 
+    display: flex;
 }
 
 header ul li {
-    margin-right: 20px; /* Відстань між посиланнями */
+    margin-right: 20px; 
 }
 
 header ul {
-    list-style-type: none; /* Видалення маркерів списку */
-    padding: 0; /* Видалення відступів */
-    margin: 0; /* Видалення зовнішніх відступів */
+    list-style-type: none; 
+    padding: 0; 
+    margin: 0; 
 }
 
 header ul a {
-    text-decoration: none; /* Видалення підкреслення з посилань */
-    color: #333; /* Колір тексту */
-    font-weight: bold; /* Жирний шрифт */
-    transition: color 0.3s ease; /* Плавний перехід кольору при наведенні курсору */
+    text-decoration: none; 
+    color: #333; 
+    font-weight: bold; 
+    transition: color 0.3s ease; 
 }
 
 header ul a:hover {
-    color: #666; /* Зміна коліру тексту при наведенні курсору */
+    color: #666; 
 }
 
 
 
-
-/* Стилі для пошукового input */
 .search-form {
-    margin: 0 auto; /* Відстань від header до пошукової форми */
+    margin: 0 auto; 
 }
 
 .search-form input[type="text"] {
-    width: 700px; /* Ширина пошукового поля */
-    height: 30px; /* Висота пошукового поля */
-    padding: 10px; /* Внутрішні відступи */
-    border-radius: 20px; /* Скруглені кути */
-    border: 2px solid #616263; /* Рамка */
-    outline: none; /* Відмінити зображення контуру при фокусі */
-    transition: border-color 0.3s ease; /* Плавна анімація зміни колір рамки */
+    width: 700px; 
+    height: 30px; 
+    padding: 10px; 
+    border-radius: 20px; 
+    border: 2px solid #616263; 
+    outline: none; 
+    transition: border-color 0.3s ease; 
 }
 
 .search-form input[type="text"]:focus {
-    border-color: #e89797; /* Змінити колір рамки при фокусі */
+    border-color: #e89797; 
 }
 
 .active{
@@ -300,9 +290,8 @@ header ul a:hover {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 9999;
+
 }
-
-
 
 .alert {
     padding: 15px;
@@ -312,7 +301,7 @@ header ul a:hover {
     color: #721c24;
     margin-bottom: 10px;
 }
-/* Стилі для модального вікна */
+
 .modal {
     display: none;
     position: fixed;
@@ -365,25 +354,17 @@ header ul a:hover {
 }
 
 .default-image {
-    text-align: center; /* Вирівнюємо текст по центру */
-    margin-top: 50px; /* Встановлюємо відступ зверху для вирівнювання по вертикалі */
+    text-align: center; 
+    margin-top: 50px; 
 }
 
 .default-image img {
-    display: block; /* Встановлюємо властивість display на block, щоб можна було використовувати margin: auto */
-    margin: 0 auto; /* Вирівнюємо картинку по горизонталі */
-    max-width: 100%; /* Задаємо максимальну ширину для адаптивності */
-    height: auto; /* Автоматично обчислюємо висоту для збереження пропорцій */
+    display: block; 
+    margin: 0 auto; 
+    max-width: 100%; 
+    height: auto; 
 }
 
-main {
-    
-    margin-top: 80px; /* Замініть 80px на висоту вашого хедера */
-    background-image: url(../img/fondo.png);
-    background-size: cover; /* Розтягнути фонове зображення, щоб воно вмістилося в блок main */
-    background-repeat: repeat; /* Заборонити повторення фонового зображення */
-    background-position: center; /* Вирівняти фонове зображення по центру */
-}
 
 .footer_text{
 
