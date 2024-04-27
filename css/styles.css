@@ -364,19 +364,16 @@ header ul a:hover {
    margin: 0 auto;
 }
 
-
 .default-image {
-    text-align: center; /* Вирівнювання тексту по центру */
-    margin-top: 50px; /* Задаємо відступ зверху для відцентрування блоку */
+    text-align: center; /* Вирівнюємо текст по центру */
+    margin-top: 50px; /* Встановлюємо відступ зверху для вирівнювання по вертикалі */
 }
 
 .default-image img {
-    max-width: 100%;
-    height: auto;
-}
-
-.default-image p {
-    margin-top: 20px; /* Задаємо відступ від картинки до тексту */
+    display: block; /* Встановлюємо властивість display на block, щоб можна було використовувати margin: auto */
+    margin: 0 auto; /* Вирівнюємо картинку по горизонталі */
+    max-width: 100%; /* Задаємо максимальну ширину для адаптивності */
+    height: auto; /* Автоматично обчислюємо висоту для збереження пропорцій */
 }
 
 main {

@@ -48,50 +48,8 @@ import {  page, fetchArticles, createMarkup } from './index.js';
 //     }
 // }
 
-
-let searchTimer = null;
-
-// export async function searchImages(page) {
-//     try {
-//         clearTimeout(searchTimer);
-        
-//         const searchQuery = refs.searchInput.value.trim();
-
-//         if (searchQuery === '') {
-//             return;
-//         }
-
-//         refs.div.innerHTML = '';
-
-//         searchTimer = setTimeout(async () => {
-//             const url = `${BASE_URL}?key=${API_KEY}&q=${searchQuery}&image_type=photo&orientation=horizontal&safesearch=true&per_page=40&page=${page}`;
-
-//             const response = await fetch(url);
-//             if (!response.ok) {
-//                 throw new Error('Network response was not ok');
-//             }
-
-//             const data = await response.json();
-//             if (data.totalHits === 0) {
-//                 throw new Error('No results found');
-//             }
-
-//             createMarkup(data);
-//         }, 2000);
-//     } catch (error) {
-//         console.error('Error searching images:', error);
-//         if (error.message === 'No results found') {
-//             alert('No results found. Please try again with a different search query');
-//         } else {
-//             alert('Sorry, an error occurred while searching for images');
-//         }
-//     }
-// }
-
 export async function searchImages(page) {
     try {
-        clearTimeout(searchTimer);
-        
         const searchQuery = refs.searchInput.value.trim();
 
         if (searchQuery === '') {
@@ -101,27 +59,26 @@ export async function searchImages(page) {
 
         refs.div.innerHTML = '';
 
-        searchTimer = setTimeout(async () => {
-            const url = `${BASE_URL}?key=${API_KEY}&q=${searchQuery}&image_type=photo&orientation=horizontal&safesearch=true&per_page=40&page=${page}`;
+        const url = `${BASE_URL}?key=${API_KEY}&q=${searchQuery}&image_type=photo&orientation=horizontal&safesearch=true&per_page=40&page=${page}`;
 
-            const response = await fetch(url);
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
 
-            const data = await response.json();
-            if (data.totalHits === 0) {
-                insertDefaultImage();
-                return;
-            }
+        const data = await response.json();
+        if (data.totalHits === 0) {
+            insertDefaultImage();
+            return;
+        }
 
-            createMarkup(data);
-        }, 2000);
+        createMarkup(data);
     } catch (error) {
         console.error('Error searching images:', error);
         alert('Sorry, an error occurred while searching for images');
     }
 }
+
 
 function insertDefaultImage() {
     refs.div.innerHTML = `
