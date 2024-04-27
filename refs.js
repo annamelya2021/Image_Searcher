@@ -3,5 +3,6 @@ export const refs = {
   div: document.querySelector('.gallery'),
   fav: document.getElementById('favorites-container'),
   searchInput: document.querySelector('.search-form input[name="searchQuery"]'),
-  downloadButton: document.querySelector('.download')
+  downloadButton: document.querySelector('.download'),
+  alertContainer:  document.getElementById('alert-container')
 };

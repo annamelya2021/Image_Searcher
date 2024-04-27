@@ -1,6 +1,6 @@
 import {refs} from './refs.js';
 import {toggleFavorites} from './toggle.js';
- import { API_KEY, BASE_URL } from './Api_key.js';
+ import { API_KEY, BASE_URL } from './js/Api_key.js';
  import{ handleDownloadButtonClick} from './download.js'
  import{updateFavoriteButtons} from './updateFavoriteButton.js';
  import {searchImages} from './searchImage.js';
@@ -36,7 +36,7 @@ console.log('refs :>> ', refs);
 export async function fetchArticles() {
     try {
         const perPage = 40; 
-        const url = `${BASE_URL}?key=${API_KEY}&q=&image_type=photo&orientation=horizontal&safesearch=true&per_page=${perPage}&page=${page}`;
+        const url = `${BASE_URL}?key=${API_KEY}&q=popular&image_type=photo&orientation=horizontal&safesearch=true&per_page=${perPage}&page=${page}`;
         const response = await fetch(url);
         if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -57,18 +57,28 @@ export async function fetchArticles() {
     }
 }
 
-function showAlert(message) {
+
+export function showAlert(message) {
     const alertContainer = document.getElementById('alert-container');
-    console.log(alertContainer)
     const alert = document.createElement('div');
-    console.log(alert)
     alert.classList.add('alert');
     alert.textContent = message || 'Sorry, an error occurred'; 
-    alertContainer.appendChild(alert);
+    
+    // Перевіряємо, чи існує контейнер для сповіщень
+    if (alertContainer) {
+        // Якщо так, вставляємо сповіщення перед першим елементом у контейнері
+        alertContainer.insertBefore(alert, alertContainer.firstChild);
+    } else {
+        // Якщо контейнер ще не існує, вставляємо сповіщення безпосередньо у body
+        document.body.insertBefore(alert, document.body.firstChild);
+    }
+    
+    // Встановлюємо таймер для автоматичного прибирання сповіщення
     setTimeout(() => {
         alert.remove();
     }, 5000);
 }
+
 
 export function createMarkup({ hits }) {
     if (!hits) {
@@ -140,7 +150,7 @@ export function createMarkup({ hits }) {
     return markup;
 }
 
-function openModal(event) {
+export function openModal(event) {
 if (event.target.tagName !== 'IMG') {
     return;
 }
@@ -154,7 +164,7 @@ if (event.target.tagName !== 'IMG') {
     document.body.classList.add('modal-open'); // Додати клас до body
 }
 
-function closeModal() {
+export function closeModal() {
     const modal = document.getElementById('myModal');
     modal.style.display = 'none';
     document.body.classList.remove('modal-open'); // Видалити клас з body

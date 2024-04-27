@@ -72,6 +72,8 @@
 // //     }
 // // }
 
+import {renderFavorites} from "./favorites.js";
+
 function getCurrentPage() {
     // Отримати поточний URL або інший ідентифікатор сторінки
     const url = window.location.href;
@@ -99,7 +101,8 @@ export function toggleFavorites(event) {
     if (isFavorite) {
         removeFavoriteCard(imageData.id);
         if (currentPage === 'favorites') {
-            card.remove(); // Видалення елемента з DOM тільки на сторінці улюблених
+            card.remove();
+            renderFavorites()// Видалення елемента з DOM тільки на сторінці улюблених
         } 
         button.textContent = '❤️';
     } else {

@@ -1,12 +1,98 @@
 
+
+
 body {
     font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; 
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 1200px;
+    padding: 0; /* Замінюємо окремі властивості padding на одну загальну */
+    margin: 0; /* Замінюємо окремі властивості margin на одну загальну */
+    overflow-x: hidden; /* Приховуємо горизонтальний скрол */
 }
+/* 
+
+
+
+
+/* Стилі для header */
+header {
+   background-color: #d7d1d1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px; /* Задайте висоту вашого header */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    align-items: center; /* Вирівняти по вертикалі */
+    justify-content: space-between; /* Рівномірно розподілити по горизонталі */
+    padding: 0 20px; /* Додайте відступи по краях */
+}
+
+/* Для мобільних пристроїв */
+@media only screen and (max-width: 600px) {
+    .header {
+        height: 70px;
+    }
+       .search-form input[type="text"] {
+    /* width: 100%; */
+    width: 170px !important   ; /* Ширина пошукового поля */
+    height: 20px;  /* Розтягуємо пошукове поле на всю ширину */
+  }
+
+
+   .card-container {
+    width: calc(100% ) !important   ;  
+    display: inline-block;
+    margin: 0 !important;
+  }
+   main {
+    margin-top: 70px !important; /* Змінюємо відступ у головному вмісті */
+  }
+
+  .modal-content {
+    width: 50vh !important; /* Змінюємо ширину модального вікна */
+    height: 50vh !important; /* Змінюємо висоту модального вікна */
+  }
+}
+
+
+
+
+/* Для мобільних пристроїв */
+
+
+/* Для планшетів */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  header {
+    height: 80px; /* Зменшуємо висоту хедера */
+  }
+
+        .search-form input[type="text"] {
+    /* width: 100%; */
+    width: 480px !important   ; /* Ширина пошукового поля */
+    height: 20px;  /* Розтягуємо пошукове поле на всю ширину */
+  }
+
+
+  main {
+    margin-top: 90px; /* Змінюємо відступ у головному вмісті */
+  
+  }
+
+   .card-container {
+    width: calc(49% ) !important   ;  
+    display: inline-block;
+    margin: 0 !important;
+  }
+
+  .modal-content {
+    width: 80%; /* Змінюємо ширину модального вікна */
+    height: 70%; /* Змінюємо висоту модального вікна */
+  }
+}
+
+
+
 
 h1,
 h2,
@@ -20,22 +106,13 @@ ul {
 
 
 footer {
-    background-image: url(./crystal-7428278_1280.jpg);    
-/* background-repeat: no-repeat;
-background-size: cover;
-background-position: center;
-font: inherit;
-display: flex;
-        justify-content: center;
-        padding: 10px;
-
-       */
+    
+   background-color: #d7d1d1;
             position: fixed;
             height: 20px;
             bottom: 0;
             right: 0;
             width: 100%;
-            background-color: #ffffff;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             z-index: 1000; /* Забезпечуємо, щоб хедер був над усіма іншими елементами */
 
@@ -46,9 +123,7 @@ img {
     height: 100%; 
 }
 
-main {
-    margin-top: 120px; /* Замініть 80px на висоту вашого хедера */
-}
+
 
 a{
     text-decoration: none;
@@ -162,21 +237,6 @@ color:black;
 
 
 
-/* Стилі для header */
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 80px; /* Задайте висоту вашого header */
-    background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    display: flex;
-    align-items: center; /* Вирівняти по вертикалі */
-    justify-content: space-between; /* Рівномірно розподілити по горизонталі */
-    padding: 0 20px; /* Додайте відступи по краях */
-}
 
 /* Стилі для посилань у header */
 header ul {
@@ -188,16 +248,25 @@ header ul li {
     margin-right: 20px; /* Відстань між посиланнями */
 }
 
-header ul li a {
-    text-decoration: none; /* Відмінити підкреслення посилань */
-    color: #333333; /* Колір тексту посилань */
-    font-weight: bold; /* Жирний шрифт */
-    transition: color 0.3s ease; /* Плавна анімація зміни кольору */
+header ul {
+    list-style-type: none; /* Видалення маркерів списку */
+    padding: 0; /* Видалення відступів */
+    margin: 0; /* Видалення зовнішніх відступів */
 }
 
-header ul li a:hover {
-    color: #007bff; /* Змінити колір тексту при наведенні */
+header ul a {
+    text-decoration: none; /* Видалення підкреслення з посилань */
+    color: #333; /* Колір тексту */
+    font-weight: bold; /* Жирний шрифт */
+    transition: color 0.3s ease; /* Плавний перехід кольору при наведенні курсору */
 }
+
+header ul a:hover {
+    color: #666; /* Зміна коліру тексту при наведенні курсору */
+}
+
+
+
 
 /* Стилі для пошукового input */
 .search-form {
@@ -209,15 +278,18 @@ header ul li a:hover {
     height: 30px; /* Висота пошукового поля */
     padding: 10px; /* Внутрішні відступи */
     border-radius: 20px; /* Скруглені кути */
-    border: 2px solid #007bff; /* Рамка */
+    border: 2px solid #616263; /* Рамка */
     outline: none; /* Відмінити зображення контуру при фокусі */
     transition: border-color 0.3s ease; /* Плавна анімація зміни колір рамки */
 }
 
 .search-form input[type="text"]:focus {
-    border-color: #ff0000; /* Змінити колір рамки при фокусі */
+    border-color: #e89797; /* Змінити колір рамки при фокусі */
 }
 
+.active{
+    text-decoration: underline;
+}
 
 #alert-container {
     position: fixed;
@@ -244,7 +316,7 @@ header ul li a:hover {
     z-index: 1;
     padding-top: 50px;
     left: 0;
-    top: 90px;
+    top: 80px;
     width: 100%;
     height: 100%;
     overflow: auto;
@@ -277,6 +349,44 @@ header ul li a:hover {
     font-size: 20px; 
   }
 
- /* #favorites-container {
-    position: relative;
-} */
+
+
+.no-favorites {
+    text-align: center; 
+}
+
+.no-favorites img {
+    max-width: 100%; 
+    height: auto; 
+   margin: 0 auto;
+}
+
+
+.default-image {
+    text-align: center; /* Вирівнювання тексту по центру */
+    margin-top: 50px; /* Задаємо відступ зверху для відцентрування блоку */
+}
+
+.default-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.default-image p {
+    margin-top: 20px; /* Задаємо відступ від картинки до тексту */
+}
+
+main {
+    
+    margin-top: 80px; /* Замініть 80px на висоту вашого хедера */
+    background-image: url(../img/fondo.png);
+    background-size: cover; /* Розтягнути фонове зображення, щоб воно вмістилося в блок main */
+    background-repeat: repeat; /* Заборонити повторення фонового зображення */
+    background-position: center; /* Вирівняти фонове зображення по центру */
+}
+
+.footer_text{
+
+    text-align: center;
+    font-size: 12px;
+}
